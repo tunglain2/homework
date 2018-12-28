@@ -3,13 +3,17 @@ package com.train
 import java.util.*
 
 fun main(args: Array<String>) {
-    val scanner = Scanner(System.`in`)
-    print("Please enter number of tickets:")
-    var tickets:Int = scanner.nextInt()
-    print("How many round-trip tickets:")
-    var roundTripTickets:Int = scanner.nextInt()
-    val ticket = TicketKotlin(tickets,roundTripTickets)
-    ticket.totalPrint()
+    var tickets:Int = -1
+    while (tickets != 0) {
+        val scanner = Scanner(System.`in`)
+        print("Please enter number of tickets:")
+        tickets = scanner.nextInt()
+        if(tickets == -1) break
+        print("How many round-trip tickets:")
+        var roundTripTickets: Int = scanner.nextInt()
+        val ticket = TicketKotlin(tickets, roundTripTickets)
+        ticket.totalPrint()
+    }
 }
 
 class TicketKotlin(var ticket:Int,var trip:Int) {
